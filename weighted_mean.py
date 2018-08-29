@@ -11,4 +11,4 @@ for i in range(n):
 
 weighted_mean = float(wt_ele/wt)
 
-print (round(weighted_mean, 1))
+print (round(weighted_mean, 1)) 
