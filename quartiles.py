@@ -4,6 +4,8 @@ sum = 0
 ele_list = []
 
 ele_list = list(map(int, input().split())) # input elements of list
+freq = list(map(int,input().split()))
+s = []
 
 def median(ele):
     #computing MEDIAN
@@ -38,5 +40,25 @@ def quartiles():
     print (q2)
     print (median(q3))
 
+def create_dataset():
+    for i in range(len(ele_list)):
+        for j in range(freq[i]):
+            s.append(ele_list[i])
+
+def interquartile_range():
+    create_dataset()
+    s.sort()
+    l = len(s)
+    if l % 2 == 0:
+        q1 = s[0:int(l/2)]
+        q3 = s[int(l/2):l]
+    else:
+        q1 = s[0:math.floor(int(l / 2))-1]
+        q3 = s[math.floor(int(l / 2))+1:l]
+
+    interquartile_range = median(q3) - median(q1)
+    print (round(float(interquartile_range),1))
 
 quartiles()
+interquartile_range()
+
